@@ -133,25 +133,32 @@ export default function LoveLetter() {
       boxSizing: 'border-box',
     },
     introOverlay: {
-      backgroundColor: '#fbcfe8',
-      animation: 'fadeIn 0.8s ease-in-out',
-    },
+  backgroundColor: '#fbcfe8',
+  animation: 'fadeIn 0.8s ease-in-out',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+},
     apologyOverlay: {
       backgroundColor: 'rgba(251, 207, 232, 0.95)',
       animation: 'fadeIn 0.5s ease-in-out',
       backdropFilter: 'blur(4px)',
     },
     introCard: {
-      backgroundColor: '#f9a8d4',
-      color: 'white',
-      textAlign: 'center',
-      borderRadius: '20px',
-      padding: '40px 32px',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-      animation: 'scaleIn 0.5s ease-in-out',
-      maxWidth: '500px',
-      width: '100%',
-    },
+  backgroundColor: '#f9a8d4',
+  color: 'white',
+  textAlign: 'center',
+  borderRadius: '20px',
+  padding: '40px 32px',
+  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+  animation: 'scaleIn 0.5s ease-in-out',
+  maxWidth: '600px',
+  width: '100%',
+  margin: '0 auto',
+  wordWrap: 'break-word',
+  boxSizing: 'border-box',
+},
     apologyCard: {
       backgroundColor: 'white',
       color: '#9f1239',
@@ -230,7 +237,7 @@ export default function LoveLetter() {
 
 Novamente, desculpa por nunca fazer algo "por conta própria" assim dizer, sempre parece que eu estou fazendo só porque você pediu, mas nesse caso não, eu já estava há alguns dias pensando sobre o que tentar com você, e enfim tive essa ideia que pode ser melhor por conta dos estágios. Eu quero fazer home office ao seu lado mesmo que não ganhe muito &lt;3 pois vai ser nosso começo, mesmo que tarde. também peço desculpa por não fazer o maior texto de todos, é difícil me expressar em palavras diante dos conflitos como hoje e as preocupações.
 
-eu quero apenas acordar de manhãzinha ao seu lado e podermos passear &lt;3
+eu quero apenas acordar de manhãzinha ao seu lado e podermos passear &lt;3 (aliás desculpa pela caixa principal não estar alinhada direito, eu ainda não sei pq ta assim mas é só no celular tá)
             </p>
             <Button onClick={() => setShowApology(false)}>Fechar</Button>
           </div>

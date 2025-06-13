@@ -106,18 +106,18 @@ export default function LoveLetter() {
 
   const styles = {
     container: {
-  minHeight: '100vh',
-  backgroundColor: '#fce7f3',
-  color: '#831843',
-  fontFamily: 'sans-serif',
-  margin: 0,
-  padding: 0,
-  overflow: 'hidden',
-  position: 'relative',
-  zIndex: 0,
-  width: '100vw',         
-  overflowX: 'hidden',     
-},
+      minHeight: '100vh',
+      backgroundColor: '#fce7f3',
+      color: '#831843',
+      fontFamily: 'sans-serif',
+      margin: 0,
+      padding: 0,
+      overflow: 'hidden',
+      position: 'relative',
+      zIndex: 0,
+      width: '100vw',         
+      overflowX: 'hidden',     
+    },
     overlay: {
       position: 'fixed',
       top: 0,
@@ -127,38 +127,39 @@ export default function LoveLetter() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: 'column',  // <- corrigido aqui
+      flexDirection: 'column',
       zIndex: 1000,
       padding: '20px',
       boxSizing: 'border-box',
     },
     introOverlay: {
-  backgroundColor: '#fbcfe8',
-  animation: 'fadeIn 0.8s ease-in-out',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'column',
-},
+      backgroundColor: '#fbcfe8',
+      animation: 'fadeIn 0.8s ease-in-out',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+    },
     apologyOverlay: {
       backgroundColor: 'rgba(251, 207, 232, 0.95)',
       animation: 'fadeIn 0.5s ease-in-out',
       backdropFilter: 'blur(4px)',
     },
     introCard: {
-  backgroundColor: '#f9a8d4',
-  color: 'white',
-  textAlign: 'center',
-  borderRadius: '20px',
-  padding: '40px 32px',
-  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-  animation: 'scaleIn 0.5s ease-in-out',
-  maxWidth: '600px',
-  width: '100%',
-  margin: '0 auto',
-  wordWrap: 'break-word',
-  boxSizing: 'border-box',
-},
+      backgroundColor: '#f9a8d4',
+      color: 'white',
+      textAlign: 'center',
+      borderRadius: '20px',
+      padding: '40px 32px',
+      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+      animation: 'scaleIn 0.5s ease-in-out',
+      maxWidth: '600px',
+      width: 'calc(100% - 40px)',
+      margin: '0 auto',
+      wordWrap: 'break-word',
+      hyphens: 'auto',
+      boxSizing: 'border-box',
+    },
     apologyCard: {
       backgroundColor: 'white',
       color: '#9f1239',
@@ -180,6 +181,7 @@ export default function LoveLetter() {
       width: '100%',
       position: 'relative',
       zIndex: 1,
+      boxSizing: 'border-box',
     },
     mainTitle: {
       fontSize: '3.5rem',
@@ -193,9 +195,11 @@ export default function LoveLetter() {
       backgroundColor: '#fbcfe8',
       padding: '40px',
       maxWidth: '600px',
-      width: '100%',
+      width: 'calc(100% - 40px)',
       textAlign: 'center',
       animation: 'scaleIn 0.8s ease-in-out',
+      boxSizing: 'border-box',
+      wordWrap: 'break-word',
     },
     letterContent: {
       marginTop: '30px',
@@ -221,6 +225,29 @@ export default function LoveLetter() {
     @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes letterAppear { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
+    @media (max-width: 480px) {
+      .intro-card {
+        padding: 30px 15px !important;
+        max-width: 95% !important;
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+      }
+      .letter-card {
+        padding: 25px 15px !important;
+        max-width: 95% !important;
+      }
+      .main-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 20px !important;
+      }
+      .main-content {
+        padding: 15px !important;
+      }
+      .overlay {
+        padding: 15px !important;
+      }
+    }
   `;
 
   return (
@@ -228,7 +255,7 @@ export default function LoveLetter() {
       <style>{keyframes}</style>
 
       {showApology && (
-        <div style={{ ...styles.overlay, ...styles.apologyOverlay }}>
+        <div style={{ ...styles.overlay, ...styles.apologyOverlay }} className="overlay">
           <div style={styles.apologyCard}>
             <h2>Então . . .</h2>
             <p style={{ marginBottom: '20px' }}>
@@ -246,7 +273,7 @@ eu quero apenas acordar de manhãzinha ao seu lado e podermos passear &lt;3 (ali
 
       {showIntro && (
         <div style={{ ...styles.overlay, ...styles.introOverlay }}>
-          <div style={styles.introCard}>
+          <div style={styles.introCard} className="intro-card">
             <h1>Oii amor &gt; &lt;</h1>
             <Button variant="white" onClick={handleRevealSite}>
               Abrir Envelope
@@ -256,10 +283,10 @@ eu quero apenas acordar de manhãzinha ao seu lado e podermos passear &lt;3 (ali
       )}
 
       {!showIntro && (
-        <div style={styles.mainContent}>
-          <h1 style={styles.mainTitle}>💖 pra você :) 💖</h1>
+        <div style={styles.mainContent} className="main-content">
+          <h1 style={styles.mainTitle} className="main-title">💖 pra você :) 💖</h1>
 
-          <div style={styles.letterCard}>
+          <div style={styles.letterCard} className="letter-card">
             <p>fiz essa páginazinha com uma (pequena) ajuda pra você meu bebê, aperta o botãozinho embaixo agora 💌</p>
 
             {!showLetter && <Button onClick={handleOpenLetter}>Abrir :o</Button>}
